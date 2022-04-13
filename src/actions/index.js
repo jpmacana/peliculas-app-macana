@@ -8,7 +8,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 export function getMovies(titulo) {
   return async function (dispatch) {
     const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}`
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}`
     );
     const payload = await response.json();
     dispatch({ type: "GET_MOVIES", payload });
@@ -17,7 +17,7 @@ export function getMovies(titulo) {
 export function getMovieDetail(id) {
     return async function (dispatch) {
         const response = await fetch(
-          `http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
+          `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
         );
         const payload = await response.json();
         dispatch({ type: "GET_MOVIE_DETAIL", payload });
