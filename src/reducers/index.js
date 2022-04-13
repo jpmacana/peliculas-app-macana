@@ -16,7 +16,7 @@ export default function reducer(state = initialState, { type, payload }) {
     case GET_MOVIES:
       return { ...state, moviesLoaded: payload.Search };
     case GET_MOVIE_DETAIL:
-      return { ...state };
+      return { ...state,movieDetail:payload };
     case ADD_MOVIE_FAVORITE:
       return {
         ...state,
