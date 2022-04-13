@@ -1,4 +1,9 @@
-import { GET_MOVIES,GET_MOVIE_DETAIL,ADD_MOVIE_FAVORITE,REMOVE_MOVIE_FAVORITE } from "../actions";
+import {
+  GET_MOVIES,
+  GET_MOVIE_DETAIL,
+  ADD_MOVIE_FAVORITE,
+  REMOVE_MOVIE_FAVORITE,
+} from "../actions";
 
 const initialState = {
   moviesFavourites: [],
@@ -9,13 +14,21 @@ const initialState = {
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case GET_MOVIES:
-      return { ...state,moviesLoaded: payload.Search };
+      return { ...state, moviesLoaded: payload.Search };
     case GET_MOVIE_DETAIL:
       return { ...state };
     case ADD_MOVIE_FAVORITE:
-      return { ...state };
+      return {
+        ...state,
+        moviesFavourites: [...state.moviesFavourites, payload],
+      };
     case REMOVE_MOVIE_FAVORITE:
-      return { ...state };
+      return {
+        ...state,
+        moviesFavourites: state.moviesFavourites.filter(
+          ({ imdbID }) => imdbID !== payload
+        ),
+      };
 
     default:
       return state;
