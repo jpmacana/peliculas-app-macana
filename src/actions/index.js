@@ -3,7 +3,7 @@ export const GET_MOVIE_DETAIL = "GET_MOVIE_DETAIL";
 export const ADD_MOVIE_FAVORITE = "ADD_MOVIE_FAVORITE";
 export const REMOVE_MOVIE_FAVORITE = "REMOVE_MOVIE_FAVORITE";
 
-const API_KEY = "47fff5cc";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export function getMovies(titulo) {
   return async function (dispatch) {
